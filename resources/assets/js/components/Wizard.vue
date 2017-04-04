@@ -1,30 +1,39 @@
 <template>
-    <div role="tabpanel" class="tab-pane" :class="('active': active)"></div>
+    <!-- Custom Tabs -->
+    <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs nav-justified">
+            <li v-for="step in steps" :class="{'active': step.active}">
+                <a href="step.id" :aria-controls="step.id" data-toggle="tab">{{ step.title }}</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <slot></slot>
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary btn-flat pull-left">Previos</button>
+            <button type="submit" class="btn btn-primary btn-flat pull-right">Next</button>
+        </div>
+    </div>
 </template>
 
 <script>
-    import voca from 'voca'
     export default {
-        props: {
-            title: {
-                type: String,
-                require: true
-            },
-            active: {
-                type: [Boolean, String],
-                default: false
+        data () {
+            return {
+                steps: [],
+                currentStep: 1
             }
         },
-        computed: {
-            id: function () {
-                return true
-            },
-            link: function () {
-                return '#' + this.id
-            }
-        },
-        mounted() {
+        mounted () {
             console.log('Component Mounted')
+            this.$children.forEach(step => {
+                this.steps.push({
+                    'id': step.id,
+                    'link': step.link,
+                    'title': step.title,
+                    'active': step.active
+                })
+            })
         }
     }
 </script>

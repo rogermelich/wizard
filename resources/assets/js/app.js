@@ -15,7 +15,7 @@ require('./bootstrap');
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('wizard', require('./components/Wizard.vue'));
-Vue.component('wizard-step', require('./components/Wizard-Step.vue'));
+Vue.component('wizard-step', require('./components/WizardStep.vue'));
 
 const app = new Vue({
     el: '#app'
