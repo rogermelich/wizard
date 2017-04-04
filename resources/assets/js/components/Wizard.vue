@@ -1,8 +1,7 @@
 <template>
-    <!-- Custom Tabs -->
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs nav-justified">
-            <li v-for="step in steps" :class="{'active': step.active}">
+            <li v-for="step in steps" :class="{'active': step.active}" @Click="stepChanged($event.target.id)">
                 <a href="step.id" :aria-controls="step.id" data-toggle="tab">{{ step.title }}</a>
             </li>
         </ul>
@@ -21,19 +20,23 @@
         data () {
             return {
                 steps: [],
-                currentStep: 1
+                currentStep: null
             }
         },
         mounted () {
-            console.log('Component Mounted')
+            console.log('Component Mounted'),
             this.$children.forEach(step => {
-                this.steps.push({
-                    'id': step.id,
-                    'link': step.link,
-                    'title': step.title,
-                    'active': step.active
-                })
+                if (step.active) {
+                    this.currentStep = step.id
+                }
+                this.steps.push(step)
             })
+        },
+        methods: {
+            stepChanged: function (step) {
+                console.log(step),
+                this.currentStep = step
+            }
         }
     }
 </script>

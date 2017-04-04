@@ -15,20 +15,21 @@
                 </div>
             </div>
 
+            <h4>Matrícula</h4>
             <wizard>
-                <wizard-step title="Usuari" active="true">
+                <wizard-step title="Usuari" active="true" :currentStep="currentStep">
                     Step 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, laborum.
                 </wizard-step>
-                <wizard-step title="Dades Personals">
+                <wizard-step title="Dades Personals" :currentStep="currentStep">
                     Step 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aut!
                 </wizard-step>
-                <wizard-step title="Estudis i Curs">
+                <wizard-step title="Estudis i Curs" :currentStep="currentStep">
                     Step 3: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, harum.
                 </wizard-step>
-                <wizard-step title="Moduls Professionals">
+                <wizard-step title="Moduls Professionals" :currentStep="currentStep">
                     Step 4: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quod.
                 </wizard-step>
-                <wizard-step title="Unitats Formatives">
+                <wizard-step title="Unitats Formatives" :currentStep="currentStep">
                     Step 5: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, tempore.
                 </wizard-step>
             </wizard>

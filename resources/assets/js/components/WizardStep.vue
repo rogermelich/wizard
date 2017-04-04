@@ -13,7 +13,7 @@
                 require: true
             },
             active: {
-                type: [Boolean, String],
+                type: [Boolean,String],
                 default: false
             }
         },
