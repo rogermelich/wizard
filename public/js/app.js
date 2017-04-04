@@ -37019,24 +37019,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "nav-tabs-custom"
   }, [_c('ul', {
     staticClass: "nav nav-tabs nav-justified"
-  }, _vm._l((_vm.steps), function(step) {
-    return _c('li', {
-      class: {
-        'active': step.active
-      },
-      on: {
-        "Click": function($event) {
-          _vm.stepChanged($event.target.id)
-        }
-      }
-    }, [_c('a', {
-      attrs: {
-        "href": "step.id",
-        "aria-controls": step.id,
-        "data-toggle": "tab"
-      }
-    }, [_vm._v(_vm._s(step.title))])])
-  })), _vm._v(" "), _c('div', {
+  }, [_vm._v("\" :aria-controls=\"step.id\" data-toggle=\"tab\">" + _vm._s(_vm.step.title))]), _vm._v(" "), _c('div', {
     staticClass: "tab-content"
   }, [_vm._t("default")], 2), _vm._v(" "), _vm._m(0)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;

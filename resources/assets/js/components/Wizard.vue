@@ -1,7 +1,7 @@
 <template>
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs nav-justified">
-            <li v-for="step in steps" :class="{'active': step.active}" @Click="stepChanged($event.target.id)">
+            <li v-for="step in steps" :class="{'active': step.active}" @Click="stepChanged($event.target.id)>
                 <a href="step.id" :aria-controls="step.id" data-toggle="tab">{{ step.title }}</a>
             </li>
         </ul>
