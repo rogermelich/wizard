@@ -1,3 +1,3 @@
-const store = {
+export const store = {
     'currentStep' : 'usuari'
 }

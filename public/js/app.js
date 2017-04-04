@@ -11071,8 +11071,10 @@ module.exports = InterceptorManager;
 /***/ }),
 
 /***/ 227:
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return store; });
 var store = {
     'currentStep': 'usuari'
 };
@@ -11848,7 +11850,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Store__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Store__);
 //
 //
 //
@@ -11872,13 +11873,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             steps: [],
-            currentStep: __WEBPACK_IMPORTED_MODULE_0__Store__["store"].CurrentStep
+            currentStep: __WEBPACK_IMPORTED_MODULE_0__Store__["a" /* store */].CurrentStep
         };
     },
     mounted: function mounted() {
         var _this = this;
 
-        console.log('Component Mounted'), this.$children.forEach(function (step) {
+        console.log('Component Mounted');
+        this.$children.forEach(function (step) {
             if (step.active) {
                 _this.currentStep = step.id;
             }
@@ -11903,7 +11905,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_voca__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_voca___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_voca__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Store___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Store__);
 //
 //
 //
@@ -11916,7 +11917,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            currentStep: __WEBPACK_IMPORTED_MODULE_1__Store__["store"].currentStep
+            currentStep: __WEBPACK_IMPORTED_MODULE_1__Store__["a" /* store */].currentStep
         };
     },
 
@@ -36845,13 +36846,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         'active': step.active
       },
       on: {
-        "Click": function($event) {
+        "click": function($event) {
           _vm.stepChanged($event.target.id)
         }
       }
     }, [_c('a', {
       attrs: {
         "href": "step.link",
+        "id": step.id,
         "aria-controls": step.id,
         "data-toggle": "tab"
       }
