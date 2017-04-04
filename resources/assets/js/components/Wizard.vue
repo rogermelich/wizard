@@ -3,7 +3,7 @@
 </template>
 
 <script>
-
+    import voca from 'voca'
     export default {
         props: {
             title: {
