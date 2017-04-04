@@ -1,8 +1,8 @@
 <template>
     <div class="nav-tabs-custom">
         <ul class="nav nav-tabs nav-justified">
-            <li v-for="step in steps" :class="{'active': step.active}" @Click="stepChanged($event.target.id)">
-                <a href="step.id" :aria-controls="step.id" data-toggle="tab">{{ step.title }}</a>
+            <li v-for="step in steps" :class="{'active':step.active}" @Click="stepChanged($event.target.id)">
+                <a href="step.link" :aria-controls="step.id" data-toggle="tab">{{ step.title }}</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -16,11 +16,12 @@
 </template>
 
 <script>
+    import {store} from './Store';
     export default {
         data () {
             return {
                 steps: [],
-                currentStep: null
+                currentStep: store.CurrentStep
             }
         },
         mounted () {
@@ -29,12 +30,11 @@
                 if (step.active) {
                     this.currentStep = step.id
                 }
-                this.steps.push(step)
+                this.steps.push(step);
             })
         },
         methods: {
             stepChanged: function (step) {
-                console.log(step),
                 this.currentStep = step
             }
         }
