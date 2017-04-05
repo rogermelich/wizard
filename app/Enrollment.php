@@ -3,10 +3,22 @@
 namespace App;
 
 use Acacha\Stateful\Contracts\Stateful;
+use Acacha\Stateful\Traits\StatefulTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Enrollment extends Model implements Stateful
 {
+    use StatefulTrait;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'state'
+    ];
+
     /**
      * @return mixed
      */
@@ -48,4 +60,23 @@ class Enrollment extends Model implements Stateful
             'to' => 'step1'
         ],
     ];
+
+    /**
+     * Validate + step1step2
+     * @return bool
+     */
+    protected function validateStep1step2()
+    {
+        if ($this->user_id != null) return true;
+        return false;
+    }
+
+    /**
+     * Validate + step2step1
+     * @return bool
+     */
+    protected function validateStep2step1()
+    {
+        return false;
+    }
 }
