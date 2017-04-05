@@ -17,9 +17,9 @@ require('icheck');
 require('select2');
 
 //Exemple de global storage (all app)
-import {state,store} from './components/wizard/Store'
-window.state = state
-window.store = store
+import {state,store} from './components/wizard/Store';
+window.state = state;
+window.store = store;
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces

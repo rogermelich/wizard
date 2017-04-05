@@ -11,11 +11,10 @@
 
             <h4>Matrícula</h4>
 
-            <form-user></form-user>
-
             <wizard>
                 <wizard-step title="Usuari" active="true">
                     Step 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, laborum.
+                    <form-user></form-user>
                 </wizard-step>
                 <wizard-step title="Dades Personals">
                     Step 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aut!
