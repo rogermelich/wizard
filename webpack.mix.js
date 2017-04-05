@@ -22,6 +22,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
        'node_modules/admin-lte/dist/css/skins/_all-skins.css',
        'public/css/adminlte-app.css',
        'node_modules/icheck/skins/square/blue.css',
+       'node_modules/selecte2/dist/css/select2.css/select2.min.css',
        'public/css/toastr.css'
    ], 'public/css/all.css')
    .combine([
