@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the enrollment record associated with the user.
+     */
+    public function enrollment()
+    {
+        return $this->hasOne('App\Enrollment');
+    }
+
+    /**
+     * Get the person record associated with the user.
+     */
+    public function person()
+    {
+        return $this->hasOne('App\Person');
+    }
 }

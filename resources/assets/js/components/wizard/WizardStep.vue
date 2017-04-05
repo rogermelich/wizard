@@ -6,22 +6,26 @@
 
 <script>
     import voca from 'voca'
-    import {store} from './Store'
+    import {state,store} from './Store'
     export default {
         data () {
             return {
-                currentStep: store.currentStep
+                state: state,
             }
         },
         props: {
             title: {
                 type: String,
                 require: true
+            },
+            active: {
+                type: [String, Boolean],
+                default: false
             }
         },
         computed: {
             isActive: function() {
-                return this.currentStep === this.id
+                return state.currentStep === this.id
             },
             id: function () {
                 return voca.latinise(voca.camelCase(this.title))
@@ -31,7 +35,7 @@
             }
         },
         mounted() {
-            console.log('Component Mounted')
+            console.log('Component Mounted to Wizard Step')
         }
     }
 </script>
