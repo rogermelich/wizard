@@ -17,7 +17,7 @@ class CreateEnrollmentsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('person_id')->unsigned()->nullable;
-            $table->boolean('state');
+            $table->string('state');
             $table->timestamps();
         });
     }
