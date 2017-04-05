@@ -24,4 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
     Route::get('wizard', 'WizardController@index')->name('wizard');
 
+    Route::get('users', 'UsersController@fetchUsers');
+
+    Route::post('/enrollment/user', 'EnrollmentController@user');
+
+    Route::post('/enrollment/person', 'EnrollmentController@person');
 });
