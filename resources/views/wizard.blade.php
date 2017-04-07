@@ -13,20 +13,19 @@
 
             <wizard>
                 <wizard-step title="Usuari" active="true">
-                    Step 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, laborum.
-                    <form-user></form-user>
+                    <enrollment-form-user :submit-button="false"></enrollment-form-user>
                 </wizard-step>
                 <wizard-step title="Dades Personals">
-                    Step 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, aut!
+                    <enrollment-form-person :submit-button="false"></enrollment-form-person>
                 </wizard-step>
                 <wizard-step title="Estudis i Curs">
-                    Step 3: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti, harum.
+                    <enrollment-form-test></enrollment-form-test>
                 </wizard-step>
                 <wizard-step title="Moduls Professionals">
-                    Step 4: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, quod.
+                    <enrollment-form-test></enrollment-form-test>
                 </wizard-step>
                 <wizard-step title="Unitats Formatives">
-                    Step 5: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, tempore.
+                    <enrollment-form-test></enrollment-form-test>
                 </wizard-step>
             </wizard>
         </div>

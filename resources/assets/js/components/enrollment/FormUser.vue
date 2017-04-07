@@ -19,10 +19,11 @@
     </form>
 </template>
 
-
 <script>
+    import FormMixin from './FormMixin'
     import Form from 'acacha-forms'
     export default {
+        mixins: [FormMixin],
         data: function () {
             return {
                 form: new Form( { user: ''} ),
@@ -33,17 +34,18 @@
             submit() {
                 this.form.post('/enrollment/user')
                     .then( response => {
-                        console.log('TODO')
+                        console.log('Enrollment user form sumitted OK')
+                        this.$bus.$emit('formSubmit')
                     })
                     .catch( error => {
-                        console.log('ERROR')
+                        console.log('Enrollment user form sumitted error: ' + error)
                     })
             },
             initialitzeSelect2() {
                 var component = this
                 $(".select2").select2().on('TODO', function(event){
-                    component.form.set('user',userid)
-                    component.form.errors.clear()
+                    component.form.set('user',userid);
+                    component.form.errors.clear();
                 })
             },
             fetchUsers() {
@@ -53,8 +55,8 @@
             }
         },
         mounted() {
-            console.log('Component Form User mounted.')
-            this.initialitzeSelect2()
+            console.log('Component Form User mounted.');
+            this.initialitzeSelect2();
             this.fetchUsers()
         },
         watch: {

@@ -2,9 +2,9 @@
     <div class="nav-tabs-custom">
         <div class="progress progress-sm active">
             <div class="progress-bar progress-bar-success progress-bar-striped"
-                 role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                 style="width: 25%">
-                <span class="sr-only">25% Complete</span>
+                 role="progressbar" :aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100"
+                 :style="'width: ' + progress +'%'">
+                <span class="sr-only">{{ progress }}% Complete</span>
             </div>
         </div>
 
@@ -17,11 +17,14 @@
             <slot></slot>
         </div>
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary btn-flat pull-left" v-if="!first" @click="previous()">
+            <button type="submit" class="btn btn-primary btn-flat pull-left" v-if="!first" @click="previous()"><i v-if="rewinding" class="fa fa-refresh fa-spin"></i>
                 Previous
             </button>
-            <button type="submit" class="btn btn-primary btn-flat pull-right" v-if="!last" @click="next()">Next</button>
-            <button type="submit" class="btn btn-primary btn-flat pull-right" v-if="last" @click="finish()">Finish
+            <button type="submit" class="btn btn-primary btn-flat pull-right" v-if="!last" @click="trynext()"><i v-if="forwarding" class="fa fa-refresh fa-spin"></i>
+                Next
+            </button>
+            <button type="submit" class="btn btn-primary btn-flat pull-right" v-if="last" @click="finish()"><i v-if="finishing" class="fa fa-refresh fa-spin"></i>
+                Finish
             </button>
         </div>
     </div>
@@ -34,6 +37,10 @@
             return {
                 steps: [],
                 state: state,
+                progress: 0,
+                rewinding: false,
+                forwarding: false,
+                finishing: false
             }
         },
         mounted () {
@@ -44,6 +51,7 @@
                 }
                 this.steps.push(step);
             })
+            this.onFormSubmit()
         },
         methods: {
             stepChanged: function (step) {
@@ -57,6 +65,14 @@
                     store.changeStep(this.getStepByNumber(this.currentStepNumber + 1))
                 }
             },
+            tryNext: function () {
+                this.forwarding = true
+                //NORMALLY NOT ALWAYS THIS IS GOOD! DON'T DO THAT -> Parent coupled to child not FIRST (I independent / isolated)
+                //this.$children[this.currentStepNumber].doSomething
+                // Submitting form
+                ////this.$children[this.currentStepNumber].$children[0].submit()
+                this.$bus.$emit('wizardNext',this.currentStepNumber)
+            },
             previous: function () {
                 if (this.currentStepNumber - 1 >= 0) {
                     store.changeStep(this.getStepByNumber(this.currentStepNumber - 1))
@@ -64,6 +80,14 @@
             },
             finish: function () {
                 console.log('FINISH TODO')
+            },
+            changeProgress: function () {
+                console.log('TODO CHANGE PROGRESS EVENT!')
+            },
+            onFormSubmit() {
+                this.$bus.$on('formSubmit', () => {
+                    this.next();
+                });
             }
         },
         computed: {
