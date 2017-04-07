@@ -15,9 +15,10 @@
             <span class="help-block" v-if="form.errors.has('user')" v-text="form.errors.get('name')"></span>
 
         </div>
-        <!--<button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i> Next</button>-->
+        <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i> Next</button>
     </form>
 </template>
+
 
 <script>
     import Form from 'acacha-forms'
