@@ -65,7 +65,7 @@
                     store.changeStep(this.getStepByNumber(this.currentStepNumber + 1))
                 }
             },
-            tryNext: function () {
+            trynext: function () {
                 this.forwarding = true
                 //NORMALLY NOT ALWAYS THIS IS GOOD! DON'T DO THAT -> Parent coupled to child not FIRST (I independent / isolated)
                 //this.$children[this.currentStepNumber].doSomething
